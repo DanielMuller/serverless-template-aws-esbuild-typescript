@@ -2,11 +2,11 @@
 
 Boilerplate template for [Serverless](https://serverless.com) allowing to easily separate each function into it's own dedicated file or folder.
 
-The template is using [Typescript](https://www.typescriptlang.org/) with [NodeJS 16.x](https://nodejs.org/) and it uses [webpack plugin](https://github.com/serverless-heaven/serverless-webpack) to reduce each packaged function.
+The template is using [Typescript](https://www.typescriptlang.org/) with [NodeJS 16.x](https://nodejs.org/) and it uses [esbuild plugin](https://github.com/floydspace/serverless-esbuild/) to reduce each packaged function.
 
 ## Project creation
 
-`sls create --template-url https://github.com/DanielMuller/serverless-template-aws-webpack-typescript/tree/master/ --path my-new-service --name awesome-service`
+`sls create --template-url https://github.com/DanielMuller/serverless-template-aws-esbuild-typescript/tree/master/ --path my-new-service --name awesome-service`
 
 ### Configuration
 
@@ -33,9 +33,9 @@ Run `nvm use` to load the right node version and `npm install` to install all th
 
 `sls deploy` (development) or `sls deploy -s production`
 
-### Webpack
+### ESBuild
 
-Webpack will automatically bundle only the used dependencies and create a unique and smaller bundle for each function.
+ESBuild will automatically bundle only the used dependencies and create a unique and smaller bundle for each function.
 
 ## Logging
 
