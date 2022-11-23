@@ -1,7 +1,7 @@
 service: test-updates
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '3.24.1'
+frameworkVersion: '3.25.0'
 configValidationMode: error
 
 custom:
@@ -14,6 +14,8 @@ custom:
     bundle: true
     minify: true
     keepNames: true
+    exclude:
+      - '@aws-sdk'
 
 plugins:
   - serverless-esbuild
@@ -23,7 +25,7 @@ package:
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, self:custom.stage.region}
   profile: ${self:custom.stage.profile}
