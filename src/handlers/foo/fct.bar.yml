@@ -1,7 +1,7 @@
 handler: src/handlers/foo/bar.handler
 name: ${self:service}-foo-bar # Don't use environment in name. This will fail if your development and production AWS account is the same
-memorySize: ${self:custom.stage.lambda.memorySize} # Overwrites the global lambda config
-timeout: ${self:custom.stage.lambda.timeout} # Overwrites the global lambda config
+memorySize: ${self:custom.stage.lambda.memorySize, self:provider.memorySize} # Overwrites the global lambda config
+timeout: ${self:custom.stage.lambda.timeout, self:provider.timeout} # Overwrites the global lambda config
 # logRetentionInDays: 5 # If different from the global definition
 
 ## The following are a few example events you can configure
