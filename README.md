@@ -1,6 +1,6 @@
 # Functions split
 
-Boilerplate template for [Serverless](https://serverless.com) allowing to easily separate each function into it's own dedicated file or folder.
+Boilerplate template for [Serverless v4](https://serverless.com) allowing to easily separate each function into it's own dedicated file or folder.
 
 The template is using [Typescript](https://www.typescriptlang.org/) with [NodeJS 20.x](https://nodejs.org/) and it uses [esbuild plugin](https://github.com/floydspace/serverless-esbuild/) to reduce each packaged function.
 

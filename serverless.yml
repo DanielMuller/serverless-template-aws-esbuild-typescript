@@ -1,24 +1,25 @@
-service: test-updates
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: ${self:custom.stage.org}
+service: ${self:custom.stage.service}
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '3.38.0'
 configValidationMode: error
+frameworkVersion: '>=4 <5'
 
+build:
+  esbuild:
+    bundle: true
+    minify: false
+    buildConcurrency: 3
+    sourcemap:
+      type: linked
+      setNodeOptions: true
 custom:
   stage: ${file(config/stages/${self:provider.stage}.yml)}
   # Add custom variables here. You can re-use variables defined in the stage yml
   # customStageVar: ${self:custom.stage.customStageVar}
-  esbuild:
-    packager: 'npm'
-    sourcemap: true
-    bundle: true
-    minify: true
-    keepNames: true
-    exclude:
-      - '@aws-sdk'
 
 plugins:
-  - serverless-esbuild
   - serverless-deployment-bucket
 package:
   individually: true
@@ -33,6 +34,12 @@ provider:
   timeout: ${self:custom.stage.lambda.timeout, '10'}
   logRetentionInDays: ${self:custom.stage.lambda.logRetention, 1}
   iam: ${file(serverless.iam.yml)}
+  logs:
+    lambda:
+      logFormat: JSON
+      applicationLogLevel: DEBUG
+      systemLogLevel: WARN
+
   deploymentBucket:
     name: com.serverless.${aws:accountId}.${aws:region}.deploys
     blockPublicAccess: true
@@ -40,7 +47,9 @@ provider:
     serverSideEncryption: AES256
   environment:
     SERVERLESS_REGION: ${aws:region}
-    NODE_OPTIONS: '--enable-source-maps'
+    POWERTOOLS_SERVICE_NAME: ${self:service}
+    POWERTOOLS_LOG_LEVEL: DEBUG
+    POWERTOOLS_LOGGER_LOG_EVENT: 'true'
 functions: ${file(helpers/main.js):getFunctions}
 resources:
   Resources: ${file(helpers/main.js):getResources}

@@ -14,7 +14,7 @@
 
 Type: AWS::S3::Bucket
 Properties:
-  BucketName: my-new-bucket
+  BucketName: ${self:service}
 Outputs:
   NewOutput:
     Description: 'Description for the output'

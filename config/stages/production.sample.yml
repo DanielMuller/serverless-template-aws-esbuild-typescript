@@ -1,5 +1,7 @@
 profile: prod # Replace with the profile from ~/.aws/credentials used for production
 region: eu-central-1 # Replace with your favorite region
+org: myOrg
+service: aws-esbuild-typescript
 ## Add any additional stage related variables. You can re-use the definition in serverless.yml:custom
 # customStageVar: customStageValue
 ## Default Lambda related configs. Can be overwritten in each function
