@@ -18,20 +18,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@aws-sdk/types": "3.696.0",
+    "@aws-sdk/types": "3.731.0",
     "@serverless/typescript": "3.38.0",
     "@tsconfig/node20": "20.1.4",
-    "@types/aws-lambda": "8.10.146",
-    "@typescript-eslint/eslint-plugin": "8.16.0",
-    "@typescript-eslint/parser": "8.16.0",
-    "eslint": "9.15.0",
-    "eslint-config-prettier": "9.1.0",
-    "prettier": "3.4.0",
-    "serverless": "4.4.12",
+    "@types/aws-lambda": "8.10.147",
+    "@typescript-eslint/eslint-plugin": "8.21.0",
+    "@typescript-eslint/parser": "8.21.0",
+    "eslint": "9.18.0",
+    "eslint-config-prettier": "10.0.1",
+    "prettier": "3.4.2",
+    "serverless": "4.4.19",
     "serverless-deployment-bucket": "1.6.0",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   },
   "dependencies": {
-    "@aws-lambda-powertools/logger": "2.11.0"
+    "@aws-lambda-powertools/logger": "2.13.0"
   }
 }
